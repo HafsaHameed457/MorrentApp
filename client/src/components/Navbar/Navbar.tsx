@@ -1,30 +1,12 @@
-import Logo from "../../assets/logo.svg";
 import Favorite from "../../assets/favourite.svg";
+import Logo from "../../assets/logo.svg";
 import Notification from "../../assets/notification.svg";
 import Profile from "../../assets/profile.svg";
 import Settings from "../../assets/settings.svg";
 import useRouter from "../../hooks/useRouter";
-import { StyledButton } from "../helpers/GeneralComponents.styled";
 import useMediaQuery from "../helpers/MediaQuery";
-import { LeftSection, NavLink, NavbarContainer } from "./Navbar.styled";
-const navLinks = [
-  {
-    title: "Home",
-    ref: "/",
-  },
-  {
-    title: "Solutions",
-    ref: "/solution",
-  },
-  {
-    title: "Insights",
-    ref: "/insight",
-  },
-  {
-    title: "Contact",
-    ref: "/contact",
-  },
-];
+import { LeftSection, NavbarContainer } from "./Navbar.styled";
+
 const Navbar: React.FC = () => {
   const router = useRouter();
   const isMobile = useMediaQuery("(max-width: 750px)");
@@ -37,6 +19,7 @@ const Navbar: React.FC = () => {
         left: 0,
         flexDirection: isMobile ? "column" : "row",
         zIndex: 100,
+        backgroundColor: "#fff",
       }}
     >
       <a onClick={() => router.navigate("/")}>

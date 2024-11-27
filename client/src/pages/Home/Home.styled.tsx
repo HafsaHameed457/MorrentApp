@@ -6,7 +6,7 @@ export const HomeContainer = styled.div`
   align-items: center;
   justify-content: center;
   background-color: #f6f7f9 !important;
-  padding: 0 0vw;
+  padding: 2rem 5rem;
 
   height: auto;
   min-height: 30vh;
@@ -27,32 +27,38 @@ export const HomeContainer = styled.div`
     margin-top: none;
   }
 `;
-export const ParallaxContainer: React.FC<any> = styled.div`
-  position: relative;
+export const CarContainer: React.FC<any> = styled.div`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 80vh;
-  width: 80%;
+  height: 360px;
+  width: 640px;
   border: none;
   border-radius: 10px;
 
-  @media screen and (max-width: 768px) {
-    height: 60vh;
-    width: 90%;
-  }
-  @media screen and (max-width: 480px) {
-    height: 60vh;
-    width: 100%;
-  }
-  overflow: hidden;
-  transition: ${(props: { fadeIn: boolean }) =>
-    props.fadeIn ? "opacity 1s ease-in-out" : "none"};
-  opacity: ${(props: { fadeIn: boolean }) => (props.fadeIn ? 1 : 0)};
   background-image: url(${(props: { backgroundImage: string }) =>
     props.backgroundImage});
 `;
 
+export const RentalDisplay = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  width: 308px;
+  height: 388px;
+  background-color: #fff;
+  border: none;
+  border-radius: 10px;
+`;
+export const CarTitle = styled.p`
+  font-size: 20px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  line-height: 30px;
+  font-weight: 700;
+  color: #1a202c;
+`;
 // Styled component for the content
 export const Content = styled.div`
   position: absolute;

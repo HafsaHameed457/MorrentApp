@@ -2,14 +2,13 @@ import styled from "styled-components";
 
 export const StyledButton: React.FC<any> = styled.button`
   padding: ${(props: { padding: string }) => props.padding};
-  background-color: #19124f;
+  background-color: #3563e9;
   color: white;
   border: none;
   border-radius: 5px;
   font-size: ${(props: { fontSize: string }) => props.fontSize};
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
-  margin-top: 1rem;
 
   &:hover {
     background-color: #45a049;
