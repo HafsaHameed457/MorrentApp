@@ -3,14 +3,17 @@ import styled from "styled-components";
 export const NavbarContainer: React.FC<any> = styled.div`
   display: flex;
   font-size: 1.2rem;
-  height: 80px;
+  height: 124px;
 
   padding: 0 5rem;
   align-items: center;
+  justify-content: space-between;
+  border: 1px solid #c3d4e966;
   @media (max-width: 768px) {
     padding: 20px;
     height: auto;
   }
+
   @media (max-width: 480px) {
     padding: 10px;
     height: auto;
@@ -45,4 +48,10 @@ export const NavLink = styled.a`
   @media (max-width: 480px) {
     font-size: 18px;
   }
+`;
+
+export const LeftSection = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 20px;
 `;

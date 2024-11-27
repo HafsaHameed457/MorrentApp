@@ -1,8 +1,12 @@
-import Logo from "../../assets/logo.svg"; // Update path as necessary
+import Logo from "../../assets/logo.svg";
+import Favorite from "../../assets/favourite.svg";
+import Notification from "../../assets/notification.svg";
+import Profile from "../../assets/profile.svg";
+import Settings from "../../assets/settings.svg";
 import useRouter from "../../hooks/useRouter";
 import { StyledButton } from "../helpers/GeneralComponents.styled";
 import useMediaQuery from "../helpers/MediaQuery";
-import { NavLink, NavbarContainer } from "./Navbar.styled";
+import { LeftSection, NavLink, NavbarContainer } from "./Navbar.styled";
 const navLinks = [
   {
     title: "Home",
@@ -35,55 +39,16 @@ const Navbar: React.FC = () => {
         zIndex: 100,
       }}
     >
-      <a onClick={() => router.navigate("/")}></a>
-      <img src={Logo} alt="Logo" />
+      <a onClick={() => router.navigate("/")}>
+        <img src={Logo} alt="Logo" />
+      </a>
 
-      {!isMobile && (
-        <div
-          style={{
-            display: "flex",
-            gap: "2vw",
-            flex: 1,
-            marginLeft: "5vw",
-            marginTop: !isMobile ? "1rem" : "0",
-          }}
-        >
-          {navLinks.map((link, index) => (
-            <NavLink key={index} href={link.ref}>
-              {link.title}
-            </NavLink>
-          ))}
-        </div>
-      )}
-
-      {isMobile && (
-        <>
-          <hr />
-          <div
-            style={{
-              display: "flex",
-              gap: "20px",
-            }}
-          >
-            {navLinks.map((link, index) => (
-              <NavLink key={index} href={link.ref}>
-                {link.title}
-              </NavLink>
-            ))}
-          </div>
-        </>
-      )}
-      <StyledButton
-        style={{
-          marginLeft: !isMobile ? "1rem" : "0",
-          marginTop: !isMobile ? "0" : "1rem",
-          fontSize: isMobile ? "14px" : "16px",
-          width: isMobile ? "300px" : "auto",
-          padding: isMobile ? "10px 20px" : "10px 20px",
-        }}
-      >
-        Join us
-      </StyledButton>
+      <LeftSection>
+        <img src={Favorite} alt="Favourite" />
+        <img src={Notification} alt="Notification" />
+        <img src={Settings} alt="Settings" />
+        <img src={Profile} alt="Profile" />
+      </LeftSection>
     </NavbarContainer>
   );
 };
