@@ -9,6 +9,7 @@ export const HomeContainer = styled.div`
   padding: 0 0vw;
 
   height: auto;
+  min-height: 30vh;
   position: relative;
   z-index: 1;
 

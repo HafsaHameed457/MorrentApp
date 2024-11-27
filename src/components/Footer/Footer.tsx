@@ -1,26 +1,67 @@
+import {
+  CopyRightText,
+  FooterContainer,
+  FooterContent,
+  FooterHeadingText,
+  FooterText,
+} from "./Footer.styled";
+import Logo from "../../assets/logo.svg";
 const Footer = () => {
+  const navLinks = [
+    {
+      title: "About",
+      subLinks: [
+        "How it works",
+        "Featured",
+        "Partnership",
+        "Bussiness Relation",
+      ],
+    },
+    {
+      title: "Community",
+      subLinks: ["Events", "Blog", "Podcast", "Invite a friend"],
+    },
+    {
+      title: "Socials",
+      subLinks: ["Discord", "Instagram", "Twitter", "Facebook"],
+    },
+  ];
   return (
-    <footer className="bg-gray-800 text-white py-8">
-      <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
-        <div className="mb-4 md:mb-0">
-          <h3 className="text-lg font-bold">Contact Us</h3>
-          <p>Address: 123 Placeholder Street, City</p>
-          <p>Phone: (123) 456-7890</p>
-          <p>Email: info@example.com</p>
+    <FooterContainer>
+      <FooterContent>
+        <div className="flex flex-col h-[108px] justify-between w-[292px]">
+          <a href="/">
+            <img src={Logo} alt="Favourite" />
+          </a>
+          <FooterText>
+            Our vision is to provide convenience and help increase your sales
+            business.
+          </FooterText>
         </div>
-        <div className="flex space-x-4">
-          <a href="#" className="text-white hover:text-blue-400">
-            <i className="fab fa-linkedin"></i>
-          </a>
-          <a href="#" className="text-white hover:text-blue-400">
-            <i className="fab fa-twitter"></i>
-          </a>
-          <a href="#" className="text-white hover:text-blue-400">
-            <i className="fab fa-facebook"></i>
-          </a>
+        <div className="flex w-[500px] h-[244px] justify-between w-[292px] mr-[50px]">
+          {navLinks.map((link: any) => {
+            return (
+              <div className="flex flex-col h-[100%] justify-between">
+                <FooterHeadingText>{link.title}</FooterHeadingText>
+                <div className="flex flex-col h-[100%] justify-between mt-10">
+                  {link.subLinks.map((sublink: any) => {
+                    return <FooterText>{sublink}</FooterText>;
+                  })}
+                </div>
+              </div>
+            );
+          })}
         </div>
-      </div>
-    </footer>
+      </FooterContent>
+      <hr />
+      <FooterContent className="mt-7">
+        <CopyRightText>©2022 MORENT. All rights reserved</CopyRightText>
+        <div className="flex gap-5">
+          <CopyRightText>Privacy Policy</CopyRightText>
+          <CopyRightText>Terms & Condition</CopyRightText>
+        </div>
+      </FooterContent>
+    </FooterContainer>
   );
 };
 
