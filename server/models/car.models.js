@@ -8,6 +8,14 @@ const carSchema = new mongoose.Schema({
   capacity: { type: String, required: true },
   car_pic: { type: String, required: true },
   originalPrice: { type: String, required: false },
+  carID: { type: String, unique: true },
+  favorite: { type: Boolean, default: false },
+});
+carSchema.pre("save", async function (next) {
+  if (!this.carID) {
+    this.carID = `carID-${this._id}`;
+  }
+  next();
 });
 
 export default mongoose.model("Car", carSchema);
