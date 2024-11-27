@@ -44,10 +44,18 @@ const Navbar: React.FC = () => {
       </a>
 
       <LeftSection>
-        <img src={Favorite} alt="Favourite" />
-        <img src={Notification} alt="Notification" />
-        <img src={Settings} alt="Settings" />
-        <img src={Profile} alt="Profile" />
+        <a onClick={() => router.navigate("/")}>
+          <img src={Favorite} alt="Favourite" />
+        </a>
+        <a onClick={() => router.navigate("/")}>
+          <img src={Notification} alt="Notification" />
+        </a>
+        <a onClick={() => router.navigate("/")}>
+          <img src={Settings} alt="Settings" />
+        </a>
+        <a onClick={() => router.navigate("/")}>
+          <img src={Profile} alt="Profile" />
+        </a>
       </LeftSection>
     </NavbarContainer>
   );

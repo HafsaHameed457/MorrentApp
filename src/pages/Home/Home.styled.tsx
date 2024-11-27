@@ -5,11 +5,10 @@ export const HomeContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: #f6f7f9 !important;
   padding: 0 0vw;
-  margin-top: 60px;
-  margin-bottom: 60px;
 
-  height: 80vh;
+  height: auto;
   position: relative;
   z-index: 1;
 

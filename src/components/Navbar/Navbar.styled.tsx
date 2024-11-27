@@ -33,6 +33,9 @@ export const NavbarContainer: React.FC<any> = styled.div`
     ); /* White color with 50% opacity */
     z-index: -1;
   }
+  a {
+    cursor: pointer;
+  }
 `;
 
 export const NavLink = styled.a`
@@ -54,4 +57,7 @@ export const LeftSection = styled.div`
   display: flex;
   align-items: center;
   gap: 20px;
+  a {
+    cursor: pointer;
+  }
 `;
