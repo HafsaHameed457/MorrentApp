@@ -1,31 +1,24 @@
-import {
-  Content,
-  HomeContainer,
-  CarContainer,
-  RentalDisplay,
-  CarTitle,
-} from "./Home.styled";
-import HomeImg from "../../assets/home.jpg";
-import RentBg from "../../assets/rent.svg";
-import BuyBg from "../../assets/lowprice.svg";
-import Favourite from "../../assets/favouriteempty.svg";
-import FilledFavourite from "../../assets/favouritenew.svg";
+import { useEffect } from "react";
+import Capacity from "../../assets/capacity.svg";
 import BlueNew from "../../assets/cars/bluenew.svg";
 import NewVX from "../../assets/cars/newvx.svg";
 import SilverNew from "../../assets/cars/silvernew.svg";
 import VX from "../../assets/cars/vx.svg";
 import WhiteNew from "../../assets/cars/whitenew.svg";
+import Favourite from "../../assets/favouriteempty.svg";
+import FilledFavourite from "../../assets/favouritenew.svg";
 import Fuel from "../../assets/fuel.svg";
+import BuyBg from "../../assets/lowprice.svg";
+import RentBg from "../../assets/rent.svg";
 import Transmission from "../../assets/transmission.svg";
-import Capacity from "../../assets/capacity.svg";
-import { useEffect, useState } from "react";
-import {
-  H2,
-  H4,
-  StyledButton,
-} from "../../components/helpers/GeneralComponents.styled";
-import useMediaQuery from "../../components/helpers/MediaQuery";
 import { FooterText } from "../../components/Footer/Footer.styled";
+import { StyledButton } from "../../components/helpers/GeneralComponents.styled";
+import {
+  CarContainer,
+  CarTitle,
+  HomeContainer,
+  RentalDisplay,
+} from "./Home.styled";
 
 const Home = () => {
   const rentCarsData = [
