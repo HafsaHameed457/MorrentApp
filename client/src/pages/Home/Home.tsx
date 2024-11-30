@@ -14,7 +14,6 @@ import Transmission from "../../assets/transmission.svg";
 import { FooterText } from "../../components/Footer/Footer.styled";
 import { StyledButton } from "../../components/helpers/GeneralComponents.styled";
 
-import { useSelector } from "react-redux";
 import {
   CarContainer,
   CarTitle,
@@ -23,9 +22,6 @@ import {
 } from "./Home.styled";
 
 const Home = () => {
-  const selectedUser = useSelector((state: any) => state);
-
-  console.log(selectedUser.user.user.name);
   const rentCarsData = [
     {
       name: "Toyota Corolla",
