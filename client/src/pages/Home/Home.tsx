@@ -14,18 +14,16 @@ import Transmission from "../../assets/transmission.svg";
 import { FooterText } from "../../components/Footer/Footer.styled";
 import { StyledButton } from "../../components/helpers/GeneralComponents.styled";
 
+import { useSelector } from "react-redux";
 import {
   CarContainer,
   CarTitle,
   HomeContainer,
   RentalDisplay,
 } from "./Home.styled";
-import { useDispatch, useSelector } from "react-redux";
-import { userLoginSuccess } from "../../store/actions/userActions";
 
 const Home = () => {
   const selectedUser = useSelector((state: any) => state);
-  const dispatch = useDispatch();
 
   console.log(selectedUser.user.user.name);
   const rentCarsData = [
