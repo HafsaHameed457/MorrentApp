@@ -13,16 +13,20 @@ import RentBg from "../../assets/rent.svg";
 import Transmission from "../../assets/transmission.svg";
 import { FooterText } from "../../components/Footer/Footer.styled";
 import { StyledButton } from "../../components/helpers/GeneralComponents.styled";
+
 import {
   CarContainer,
   CarTitle,
   HomeContainer,
   RentalDisplay,
 } from "./Home.styled";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { userLoginSuccess } from "../../store/actions/userActions";
 
 const Home = () => {
   const selectedUser = useSelector((state: any) => state);
+  const dispatch = useDispatch();
+
   console.log(selectedUser.user.user.name);
   const rentCarsData = [
     {
@@ -175,7 +179,9 @@ const Home = () => {
   ];
 
   useEffect(() => {
-    const timer = setTimeout(() => {}, 500);
+    const timer = setTimeout(() => {
+      dispatch(userLoginSuccess({ name: "Hunaiza" }));
+    }, 5000);
 
     return () => clearTimeout(timer);
   }, []);

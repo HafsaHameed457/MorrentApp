@@ -1,7 +1,7 @@
 import { Provider, useSelector } from "react-redux";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { PersistGate } from "redux-persist/integration/react";
-import { persistor, store } from "../store/index";
+import { persistor, store } from "./store/index";
 import { MyDiv } from "./App.styled";
 // import { selectUser } from "../store/selectors/userSelectors";
 import { ToastContainer } from "react-toastify";

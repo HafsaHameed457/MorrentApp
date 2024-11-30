@@ -12,3 +12,7 @@ export const userLogin = (payload: UserLogin) => ({
   type: USER_LOGIN_REQUEST,
   payload,
 });
+export const userLoginSuccess = (payload: any) => ({
+  type: USER_LOGIN_SUCCESS,
+  payload,
+});
