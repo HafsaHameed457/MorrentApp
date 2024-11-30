@@ -179,9 +179,7 @@ const Home = () => {
   ];
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      dispatch(userLoginSuccess({ name: "Hunaiza" }));
-    }, 5000);
+    const timer = setTimeout(() => {}, 5000);
 
     return () => clearTimeout(timer);
   }, []);
