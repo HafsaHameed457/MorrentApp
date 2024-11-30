@@ -19,8 +19,11 @@ import {
   HomeContainer,
   RentalDisplay,
 } from "./Home.styled";
+import { useSelector } from "react-redux";
 
 const Home = () => {
+  const selectedUser = useSelector((state: any) => state);
+  console.log(selectedUser.user.user.name);
   const rentCarsData = [
     {
       name: "Toyota Corolla",

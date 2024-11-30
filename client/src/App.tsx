@@ -1,12 +1,13 @@
+import { Provider, useSelector } from "react-redux";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import { Provider } from "react-redux";
-import { store, persistor } from "../store/index";
 import { PersistGate } from "redux-persist/integration/react";
+import { persistor, store } from "../store/index";
 import { MyDiv } from "./App.styled";
+// import { selectUser } from "../store/selectors/userSelectors";
 import { ToastContainer } from "react-toastify";
 
-import Home from "./pages/Home/Home";
 import Navbar from "./components/Navbar/Navbar";
+import Home from "./pages/Home/Home";
 
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "./components/Footer/Footer";
