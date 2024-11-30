@@ -1,5 +1,7 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-
+import { Provider } from "react-redux";
+import { store, persistor } from "../store/index";
+import { PersistGate } from "redux-persist/integration/react";
 import { MyDiv } from "./App.styled";
 import { ToastContainer } from "react-toastify";
 
@@ -11,26 +13,30 @@ import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
-    <Router>
-      <MyDiv>
-        <Navbar />
-        <ToastContainer
-          position="top-right"
-          autoClose={3000}
-          hideProgressBar={false}
-          newestOnTop
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-        />
-        <Routes>
-          <Route path="/" element={<Home />} />
-        </Routes>
-        <Footer />
-      </MyDiv>
-    </Router>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <Router>
+          <MyDiv>
+            <Navbar />
+            <ToastContainer
+              position="top-right"
+              autoClose={3000}
+              hideProgressBar={false}
+              newestOnTop
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+            />
+            <Routes>
+              <Route path="/" element={<Home />} />
+            </Routes>
+            <Footer />
+          </MyDiv>
+        </Router>
+      </PersistGate>
+    </Provider>
   );
 }
 
