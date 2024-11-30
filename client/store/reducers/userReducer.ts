@@ -1,30 +1,32 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { AnyAction } from "@reduxjs/toolkit";
+import {
+  USER_REGISTER_FAIL,
+  USER_REGISTER_REQUEST,
+  USER_REGISTER_SUCCESS,
+  USER_LOGIN_FAIL,
+  USER_LOGIN_REQUEST,
+  USER_LOGIN_SUCCESS,
+  USER_LOGOUT,
+} from "../types/userTypes";
+import { userInitialData } from "../data/userData";
 
-interface UserState {
-  name: string;
-  email: string;
-}
-
-const initialState: UserState = {
-  name: "",
-  email: "",
+export const userReducer = (state = userInitialData, action: AnyAction) => {
+  switch (action.type) {
+    case USER_LOGIN_REQUEST:
+      return { loading: true };
+    case USER_LOGIN_SUCCESS:
+      return { loading: false, userInfo: action.payload };
+    case USER_LOGIN_FAIL:
+      return { loading: false, error: action.payload };
+    case USER_LOGOUT:
+      return {};
+    case USER_REGISTER_REQUEST:
+      return { loading: true };
+    case USER_REGISTER_SUCCESS:
+      return { loading: false, userInfo: action.payload };
+    case USER_REGISTER_FAIL:
+      return { loading: false, error: action.payload };
+    default:
+      return state;
+  }
 };
-
-const userSlice = createSlice({
-  name: "user",
-  initialState,
-  reducers: {
-    setUser: (state, action: PayloadAction<UserState>) => {
-      state.name = action.payload.name;
-      state.email = action.payload.email;
-    },
-    clearUser: (state) => {
-      state.name = "";
-      state.email = "";
-    },
-  },
-});
-
-export const { setUser, clearUser } = userSlice.actions;
-
-export default userSlice.reducer;
