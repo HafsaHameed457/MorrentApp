@@ -4,9 +4,7 @@ export interface UserLogin {
 }
 
 export interface UserData {
-  name: string;
-  email: string;
-  role: string;
-  contact: string;
-  address: string;
+  user?: any;
+  loading?: boolean;
+  error?: string | undefined;
 }

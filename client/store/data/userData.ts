@@ -1,9 +1,13 @@
 import { UserData } from "../interfaces/userInterfaces";
 
 export const userInitialData: UserData = {
-  name: "",
-  email: "",
-  role: "",
-  contact: "",
-  address: "",
+  user: {
+    name: "Hafsa",
+    email: "",
+    role: "",
+    contact: "",
+    address: "",
+  },
+  loading: false,
+  error: "",
 };
