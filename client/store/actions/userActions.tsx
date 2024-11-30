@@ -7,8 +7,8 @@ import {
   USER_LOGIN_SUCCESS,
   USER_LOGOUT,
 } from "../types/userTypes";
-
-export const userLogin=(payload:)=>({
-    type: USER_LOGIN_REQUEST,
-    payload: {email, password}
-})
+import { UserLogin } from "../interfaces/userInterfaces";
+export const userLogin = (payload: UserLogin) => ({
+  type: USER_LOGIN_REQUEST,
+  payload,
+});
