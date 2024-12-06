@@ -3,7 +3,7 @@ import express from "express";
 import http from "http";
 import { createResponse } from "./helpers/responseUtils.js";
 import connectDB from "./db.js";
-import carsRouter from "./routes/cars/cars.router.js";
+
 const app = express();
 dotenv.config();
 app.use(express.json());
@@ -14,7 +14,6 @@ app.get("/", (req, res) => {
 
   res.status(200).json(createResponse(data, message, true));
 });
-app.use("/cars", carsRouter);
 
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () =>
