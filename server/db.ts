@@ -1,7 +1,10 @@
-import mysql, { Connection } from "mysql2";
+import mysql, { Connection, ConnectionOptions } from "mysql2/promise"; // Use promise-based API
+import dotenv from "dotenv";
 
-// Type for the database connection config
-interface DBConfig {
+// Load environment variables from a .env file
+dotenv.config();
+
+interface DBConfig extends ConnectionOptions {
   host: string;
   user: string;
   password: string;
@@ -9,27 +12,31 @@ interface DBConfig {
   port: number;
 }
 
-// Function to connect to the MySQL database
-const connectDB = (): Connection => {
-  const connectionConfig: DBConfig = {
-    host: "localhost",
-    user: "root",
-    password: "hafsa457",
-    database: "Morrent_App",
-    port: 3306,
-  };
+let connection: Connection | null = null;
 
-  const connection = mysql.createConnection(connectionConfig);
+// Function to establish a single connection to the MySQL database
+const connectDB = async (): Promise<Connection> => {
+  if (connection) {
+    console.log("Using existing database connection");
+    return connection; // Return the existing connection if already created
+  }
 
-  connection.connect((err) => {
-    if (err) {
-      console.error("Error connecting to the database:", err.stack);
-      return;
-    }
-    console.log("Connected to the database as id " + connection.threadId);
-  });
+  try {
+    const connectionConfig: DBConfig = {
+      host: process.env.DB_HOST || "localhost",
+      user: process.env.DB_USER || "root",
+      password: process.env.DB_PASSWORD || "hafsa457",
+      database: process.env.DB_NAME || "Morrent_App",
+      port: Number(process.env.DB_PORT) || 3306,
+    };
 
-  return connection;
+    connection = await mysql.createConnection(connectionConfig);
+    console.log("Connected to the database with id:", connection.threadId);
+    return connection;
+  } catch (err) {
+    console.error("Error connecting to the database:", err);
+    throw new Error("Unable to connect to the database");
+  }
 };
 
 export default connectDB;
