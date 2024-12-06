@@ -2,7 +2,7 @@ import dotenv from "dotenv";
 import express from "express";
 import http from "http";
 import { createResponse } from "./helpers/responseUtils.js";
-import connectDB from "./db.js";
+import connectDB from "./db.ts";
 
 const app = express();
 dotenv.config();
