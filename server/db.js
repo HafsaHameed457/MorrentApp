@@ -1,19 +1,23 @@
-import mongoose from "mongoose";
-import dotenv from "dotenv";
+import mysql from "mysql2";
 
-dotenv.config();
+const connectDB = () => {
+  const connection = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "hafsa457",
+    database: "database_name",
+    port: 3306,
+  });
 
-const connectDB = async () => {
-  try {
-    const conn = await mongoose.connect(process.env.MONGO_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
-    console.log(`MongoDB Connected: ${conn.connection.host}`);
-  } catch (error) {
-    console.error(`Error: ${error.message}`);
-    process.exit(1);
-  }
+  connection.connect((err) => {
+    if (err) {
+      console.error("Error connecting to the database:", err.stack);
+      return;
+    }
+    console.log("Connected to the database as id " + connection.threadId);
+  });
+
+  return connection;
 };
 
 export default connectDB;
