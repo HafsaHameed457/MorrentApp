@@ -5,7 +5,7 @@ const connectDB = () => {
     host: "localhost",
     user: "root",
     password: "hafsa457",
-    database: "database_name",
+    database: "Morrent_App",
     port: 3306,
   });
 
