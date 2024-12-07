@@ -1,5 +1,5 @@
 import { DataTypes, Model, Optional } from "sequelize";
-import sequelize from "./sequelize.ts";
+import sequelize from "./sequelize";
 
 interface UserAttributes {
   id: number;
@@ -18,6 +18,7 @@ class User
   public id!: number;
   public username!: string;
   public email!: string;
+
   public password!: string;
   public createdAt!: Date;
   public updatedAt!: Date;
