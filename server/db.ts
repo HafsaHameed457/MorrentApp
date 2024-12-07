@@ -39,7 +39,6 @@ const connectDB = async (): Promise<Connection> => {
     return connection;
   } catch (err) {
     console.error("Error connecting to the database:", err);
-    throw new Error("Unable to connect to the database");
   }
 };
 
