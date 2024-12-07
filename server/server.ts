@@ -2,6 +2,9 @@ import * as dotenv from "dotenv";
 import express, { Request, Response, Express } from "express";
 import { createResponse } from "./helpers/responseUtils";
 import connectDB from "./db";
+import seedAdmin from "./seeders/user.seeders";
+import syncDatabase from "./seeders/syncDatabase";
+import seedRoles from "./seeders/roles.seeders";
 
 dotenv.config();
 
@@ -9,7 +12,12 @@ const app: Express = express();
 
 app.use(express.json());
 
-connectDB();
+(async () => {
+  await connectDB();
+  await syncDatabase();
+  await seedRoles();
+  await seedAdmin();
+})();
 
 app.get("/", (req: Request, res: Response) => {
   const data = { greeting: "Hello there, came to visit??" };

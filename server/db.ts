@@ -29,7 +29,12 @@ const connectDB = async (): Promise<Connection> => {
       port: Number(process.env.DB_PORT) || 3306,
     };
 
-    connection = await mysql.createConnection(connectionConfig);
+    connection = await mysql.createConnection({
+      host: connectionConfig.host,
+      user: connectionConfig.user,
+      password: connectionConfig.password,
+      port: connectionConfig.port,
+    });
     await connection.query(
       `CREATE DATABASE IF NOT EXISTS \`${connectionConfig.database}\``
     );

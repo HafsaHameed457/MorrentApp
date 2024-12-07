@@ -1,3 +1,4 @@
+import Role from "../models/roles.model";
 import User from "../models/user.model";
 import bcrypt from "bcrypt";
 
@@ -8,6 +9,7 @@ async function seedAdmin() {
       email: "hafsa.hameed457@gmail.com",
       password: "hafsa457",
     };
+    const role = await Role.findOne({ where: { name: "admin" } });
 
     const existingAdmin = await User.findOne({
       where: { email: adminDetails.email },
@@ -24,6 +26,7 @@ async function seedAdmin() {
       username: adminDetails.username,
       email: adminDetails.email,
       password: hashedPassword,
+      roleId: role.id,
     });
 
     console.log("Admin user created successfully.");
