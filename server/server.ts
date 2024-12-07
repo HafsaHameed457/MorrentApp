@@ -1,6 +1,5 @@
-import dotenv from "dotenv";
+import * as dotenv from "dotenv";
 import express, { Request, Response, Express } from "express";
-import http from "http";
 import { createResponse } from "./helpers/responseUtils";
 import connectDB from "./db";
 
