@@ -14,11 +14,10 @@ interface DBConfig extends ConnectionOptions {
 
 let connection: Connection | null = null;
 
-// Function to establish a single connection to the MySQL database
 const connectDB = async (): Promise<Connection> => {
   if (connection) {
     console.log("Using existing database connection");
-    return connection; // Return the existing connection if already created
+    return connection;
   }
 
   try {
@@ -31,7 +30,12 @@ const connectDB = async (): Promise<Connection> => {
     };
 
     connection = await mysql.createConnection(connectionConfig);
-    console.log("Connected to the database with id:", connection.threadId);
+    await connection.query(
+      `CREATE DATABASE IF NOT EXISTS \`${connectionConfig.database}\``
+    );
+    console.log(`Database '${connectionConfig.database}' is ready.`);
+    await connection.changeUser({ database: connectionConfig.database });
+    console.log("Connected to the database with ID:", connection.threadId);
     return connection;
   } catch (err) {
     console.error("Error connecting to the database:", err);
